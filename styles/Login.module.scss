@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+}
+
+.containerForm {
+  width: 450px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px 30px 40px 40px;
+  border-left: 2px solid #EDEEF2;
+}
+
+.carouselRow {
+    background-color: #F3F9FF;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 74%;
+}
+
+.checkRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.continueButtons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.navContainer {
+  display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
