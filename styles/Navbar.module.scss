@@ -1,0 +1,57 @@
+.container {
+  min-height: 100vh;
+  max-width: 200px;
+  padding: 40px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+}
+
+.ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav {
+  li {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    gap: 10px;  
+    // background-color: blue;
+  }
+}
+
+.elList {
+  // background-color: #DFF1FF;
+  border-radius: 5px;
+}
+
+.headNav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  gap: 20px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
