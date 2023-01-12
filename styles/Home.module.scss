@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  background-color: #F3F9FF;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-grow: 3;
+  flex-direction: column;
+  gap: 30px;
+}
