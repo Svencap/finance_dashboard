@@ -12,6 +12,12 @@
   border-left: 2px solid #EDEEF2;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .carouselRow {
     background-color: #F3F9FF;
     display: flex;
