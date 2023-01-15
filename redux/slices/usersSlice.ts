@@ -19,7 +19,7 @@ type Entities = {
 const userAdapter = createEntityAdapter<User>();
 
 const userSlice = createSlice({
-  name: "users",
+  name: "user",
   initialState: userAdapter.getInitialState(),
   reducers: {
     addUser: (state, actions: PayloadAction<{ ids: number[], entities: Entities }>) => {
@@ -37,6 +37,6 @@ const userSlice = createSlice({
     renameChannel: userAdapter.updateOne,
   },
 });
-export const selectors = userAdapter.getSelectors((state: RootState) => state.users);
+export const selectors = userAdapter.getSelectors((state: RootState) => state.user);
 export const { actions } = userSlice;
 export default userSlice.reducer;

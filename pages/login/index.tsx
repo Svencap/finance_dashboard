@@ -24,12 +24,14 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import routes from "../../routes.js";
 
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+
 import { useState } from "react";
 
 interface LoginProps {}
 
 const Login: FC<LoginProps> = () => {
-
   const [remember, setRemember] = useState<boolean>(false);
   const router = useRouter();
   const formik = useFormik({
@@ -49,6 +51,17 @@ const Login: FC<LoginProps> = () => {
       }
     },
   });
+
+  const googleAuth = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      try {
+        const { data } = await axios.post(routes.googleAuthPath(), codeResponse);
+        localStorage.setItem("user", JSON.stringify(data));
+        router.push("/");
+      } catch (error) {}
+    },
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.carouselRow}>
@@ -60,15 +73,37 @@ const Login: FC<LoginProps> = () => {
         </Text>
         <form onSubmit={formik.handleSubmit} className={styles.form}>
           <FormControl>
-            <Input type="text" size="lg" placeholder="Email address" name="email" onChange={formik.handleChange} value={formik.values.email} required/>
+            <Input
+              type="text"
+              size="lg"
+              placeholder="Email address"
+              name="email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              required
+            />
           </FormControl>
           <FormControl>
-            <Input type="text" placeholder="Password" size="lg" name="password" onChange={formik.handleChange} value={formik.values.password} required/>
+            <Input
+              type="text"
+              placeholder="Password"
+              size="lg"
+              name="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              required
+            />
           </FormControl>
           <div className={styles.checkRow}>
-            <Checkbox fontSize={"md"} isChecked={remember} onChange={(e) => {
-              setRemember(!remember);
-            }}>Remember me</Checkbox>
+            <Checkbox
+              fontSize={"md"}
+              isChecked={remember}
+              onChange={(e) => {
+                setRemember(!remember);
+              }}
+            >
+              Remember me
+            </Checkbox>
             <Text fontSize={"sm"}>
               <Link as={NextLink} color="#2678e1" href="/reset">
                 Reset password
@@ -87,7 +122,7 @@ const Login: FC<LoginProps> = () => {
             <Button variant="outline" size="lg">
               <FaFacebook size={30} color={"#2678E1"} />
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" onClick={() => googleAuth()}>
               <FcGoogle size={30} />
             </Button>
             <Button variant="outline" size="lg">

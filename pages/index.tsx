@@ -22,8 +22,8 @@ function HomePage() {
 
   const getNormalalized = (data:any) => {
     const entities = data.reduce((acc: any, item: User) => {
-      const { _id, username, password, __v } = item;
-      acc[item._id] = { id: _id, username, password, __v };
+      const { _id, username, email, password, __v } = item;
+      acc[item._id] = { id: _id, username, email, password, __v };
       return acc;
     }, {});
 

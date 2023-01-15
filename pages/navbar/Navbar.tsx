@@ -6,9 +6,17 @@ import { RiHome6Fill } from "react-icons/ri";
 import { IoMdWallet } from "react-icons/io";
 import { AiOutlineTransaction, AiOutlineLogout } from "react-icons/ai";
 import { Link } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = () => {
+  const router = useRouter();
+  const logOut = () => {
+    localStorage.removeItem("user");
+    router.push("/login");
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.headNav}>
@@ -42,7 +50,7 @@ const Navbar: FC<NavbarProps> = () => {
           <FiHelpCircle size={22} />
           Help
         </div>
-        <div className={styles.footer}>
+        <div className={styles.footer} onClick={logOut}>
           <AiOutlineLogout size={22} />
           Log out
         </div>
