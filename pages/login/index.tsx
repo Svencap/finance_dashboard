@@ -24,12 +24,14 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import routes from "../../routes.js";
 
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+
 import { useState } from "react";
 
 interface LoginProps {}
 
 const Login: FC<LoginProps> = () => {
-
   const [remember, setRemember] = useState<boolean>(false);
   const router = useRouter();
   const formik = useFormik({
@@ -49,6 +51,17 @@ const Login: FC<LoginProps> = () => {
       }
     },
   });
+
+  const googleAuth = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      try {
+        const { data } = await axios.post(routes.googleAuthPath(), codeResponse);
+        localStorage.setItem("user", JSON.stringify(data));
+        router.push("/");
+      } catch (error) {}
+    },
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.carouselRow}>
@@ -87,7 +100,7 @@ const Login: FC<LoginProps> = () => {
             <Button variant="outline" size="lg">
               <FaFacebook size={30} color={"#2678E1"} />
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" onClick={() => googleAuth()}>
               <FcGoogle size={30} />
             </Button>
             <Button variant="outline" size="lg">
