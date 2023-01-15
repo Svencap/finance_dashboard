@@ -10,22 +10,63 @@ import { HiLanguage } from "react-icons/hi2";
 import { MdOutlineLightMode, MdOutlineContactSupport } from "react-icons/md";
 import { RiProfileLine, RiContactsLine } from "react-icons/ri";
 import { BiLock } from "react-icons/bi";
+import { selectors } from "../redux/slices/usersSlice";
+
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
+  Avatar,
+  AvatarBadge,
+  Switch,
 } from "@chakra-ui/react";
+
+import axios from "axios";
+import routes from "../routes";
+import { useAppDispatch } from "../redux/hooks/redux-hooks";
+import { actions as usersSlice} from "../redux/slices/usersSlice";
+
+interface User {
+  _id: number;
+  username: string;
+  email: string;
+  password: string;
+  __v: number;
+}
+
 
 interface ProfileProps {}
 
 const Profile: FC<ProfileProps> = () => {
   const [notification, setNotification] = useState<boolean>(true);
+  const dispatch = useAppDispatch();
+
+  const user = Object.values(useAppSelector((store) => store.user.entities))[0];
+
+
+  const getNormalalized = (data:any) => {
+    const entities = data.reduce((acc: any, item: User) => {
+      const { _id, username, email, password, __v } = item;
+      acc[item._id] = { id: _id, username, email, password, __v };
+      return acc;
+    }, {});
+
+    const ids = data.map((item: User) => item._id);
+    return { entities, ids };
+  };
+
+  useEffect(() => {
+    const { username } = JSON.parse(localStorage.getItem("user") || '');
+    const fetchData = async () => {
+      const { data } = await axios.post(routes.dataPath(), { username });
+      const { ids, entities } = getNormalalized([data]);
+      dispatch(usersSlice.addUser({ ids, entities }));
+    }
+    fetchData();
+  }, []);
+
 
   return (
     <div className={styles.wrapper}>
