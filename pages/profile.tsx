@@ -1,8 +1,9 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
+import { useAppSelector } from "../redux/hooks/redux-hooks";
+
 import styles from "../styles/Home.module.scss";
 import Navbar from "./navbar/Navbar";
 import Header from "./header/Header";
-import { Avatar, AvatarBadge, Divider, Switch } from "@chakra-ui/react";
 import { RiEditLine, RiNotification2Line } from "react-icons/ri";
 import { FiInfo } from "react-icons/fi";
 import stylesProfile from "../styles/Profile.module.scss";
@@ -119,7 +120,15 @@ const Profile: FC<ProfileProps> = () => {
                   Language
                 </div>
                 <Menu>
-                  <MenuButton as={Button} width="5xs" bgColor="inherit" _hover={{ background: 'inherit'}} _active={{ background: 'inherit'}} height="20px" fontWeight={'normal'} >
+                  <MenuButton
+                    as={Button}
+                    width="5xs"
+                    bgColor="inherit"
+                    _hover={{ background: "inherit" }}
+                    _active={{ background: "inherit" }}
+                    height="20px"
+                    fontWeight={"normal"}
+                  >
                     English
                   </MenuButton>
                   <MenuList>
@@ -146,7 +155,15 @@ const Profile: FC<ProfileProps> = () => {
                   Theme
                 </div>
                 <Menu>
-                  <MenuButton as={Button} width="5xs" bgColor="inherit" _hover={{ background: 'inherit'}} _active={{ background: 'inherit'}} height="20px" fontWeight={'normal'} >
+                  <MenuButton
+                    as={Button}
+                    width="5xs"
+                    bgColor="inherit"
+                    _hover={{ background: "inherit" }}
+                    _active={{ background: "inherit" }}
+                    height="20px"
+                    fontWeight={"normal"}
+                  >
                     Light
                   </MenuButton>
                   <MenuList>
