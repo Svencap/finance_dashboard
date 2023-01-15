@@ -85,9 +85,9 @@ const Profile: FC<ProfileProps> = () => {
                 <RiEditLine size={25} color="black" />
               </AvatarBadge>
             </Avatar>
-            <div className={stylesProfile.city}>Puerto Rico</div>
+            <div className={stylesProfile.city}>{user?.username}</div>
             <div className={stylesProfile.orherInfo}>
-              <div>yourEmail@domain.com</div>
+              <div>{user?.email}</div>
               <div>+01 234 567 89</div>
             </div>
           </div>
