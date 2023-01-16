@@ -5,8 +5,9 @@ import styles from "../../styles/Navbar.module.scss";
 import { RiHome6Fill } from "react-icons/ri";
 import { IoMdWallet } from "react-icons/io";
 import { AiOutlineTransaction, AiOutlineLogout } from "react-icons/ai";
-import { Link } from "@chakra-ui/react";
+import { Link, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import NextLink from "next/link";
 
 interface NavbarProps {}
 
@@ -21,7 +22,11 @@ const Navbar: FC<NavbarProps> = () => {
     <div className={styles.container}>
       <div className={styles.headNav}>
         <div className={styles.logo}>
-          <Link href="/" className={styles.logo}>
+          <Link
+            href="/"
+            className={styles.logo}
+            _hover={{ textDecoration: "none" }}
+          >
             <Avatar />
             FinX
           </Link>
@@ -30,29 +35,59 @@ const Navbar: FC<NavbarProps> = () => {
         <nav className={styles.nav}>
           <ul className={styles.ul}>
             <li id="1" className={styles.elList}>
-              <RiHome6Fill size={22} />
-              Home
+              <Link as={NextLink} href="/" _hover={{ textDecoration: "none" }}>
+                <Button
+                  leftIcon={<RiHome6Fill size={21} />}
+                  width="160px"
+                  justifyContent="flex-start"
+                >
+                  Home
+                </Button>
+              </Link>
             </li>
             <li id="2" className={styles.elList}>
-              <AiOutlineTransaction size={22} />
-              Transactions
+              <Link
+                as={NextLink}
+                href="/transactions"
+                _hover={{ textDecoration: "none" }}
+              >
+                <Button
+                  leftIcon={<AiOutlineTransaction size={21} />}
+                  width="160px"
+                >
+                  {/* <AiOutlineTransaction size={22} /> */}
+                  Transactions
+                </Button>
+              </Link>
             </li>
             <li id="3" className={styles.elList}>
-              <IoMdWallet size={22} />
-              Wallet
+              <Link
+                as={NextLink}
+                href="/wallet"
+                _hover={{ textDecoration: "none" }}
+              >
+                <Button
+                  leftIcon={<IoMdWallet size={20} />}
+                  width="160px"
+                  justifyContent="flex-start"
+                >
+                  Wallet
+                </Button>
+              </Link>
             </li>
           </ul>
         </nav>
       </div>
       <div className={styles.navContainer}>
         <Divider />
-        <div className={styles.footer}>
-          <FiHelpCircle size={22} />
-          Help
-        </div>
         <div className={styles.footer} onClick={logOut}>
-          <AiOutlineLogout size={22} />
-          Log out
+          <Button
+            leftIcon={<AiOutlineLogout size={22} />}
+            width="160px"
+            justifyContent="flex-start"
+          >
+            Log out
+          </Button>
         </div>
       </div>
     </div>
