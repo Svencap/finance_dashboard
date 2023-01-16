@@ -59,7 +59,7 @@ const Profile: FC<ProfileProps> = () => {
   };
 
   useEffect(() => {
-    const { username } = JSON.parse(localStorage.getItem("user") || '');
+    const { username } = JSON.parse(localStorage.getItem("user") || '{}');
     const fetchData = async () => {
       const { data } = await axios.post(routes.dataPath(), { username });
       const { ids, entities } = getNormalalized([data]);

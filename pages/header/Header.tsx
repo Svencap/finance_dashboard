@@ -46,7 +46,7 @@ const Header: FC<HeaderProps> = ({ title }) => {
             </MenuButton>
             <MenuList>
               <MenuGroup title="Profile">
-                <Link as={NextLink} href="/profile">
+                <Link as={NextLink} href="/profile" _hover={{ textDecoration: "none" }}>
                   <MenuItem minH="48px">
                     <Image
                       boxSize="2rem"

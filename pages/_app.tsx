@@ -7,7 +7,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
-      <GoogleOAuthProvider clientId="161535797917-ps419n2e551mocuepno38r0u9gltmvc2.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}`}>
         <Provider store={store}>
           <Component {...pageProps} />
         </Provider>
