@@ -1,5 +1,6 @@
 .container {
-    display: flex;
+  display: flex;
+  justify-content: center;
 }
 
 .containerForm {
@@ -8,8 +9,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 50px 30px 40px 40px;
-  border-left: 2px solid #EDEEF2;
+  padding: 50px 20px 20px 20px;
+  // border-left: 2px solid #EDEEF2;
 }
 
 .form {
@@ -19,11 +20,11 @@
 }
 
 .carouselRow {
-    background-color: #F3F9FF;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    width: 74%;
+  background-color: #f3f9ff;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 74%;
 }
 
 .checkRow {
@@ -33,25 +34,34 @@
 
 .divider {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
 }
 
 .continueButtons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .navContainer {
   display: flex;
-    flex-direction: column;
-    gap: 20px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 425px) {
+  .container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .containerForm {
+    padding: 30px;
+  }
 }

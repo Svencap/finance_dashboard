@@ -62,11 +62,12 @@ const Login: FC<LoginProps> = () => {
     },
   });
 
+
   return (
     <div className={styles.container}>
-      <div className={styles.carouselRow}>
+      {/* <div className={styles.carouselRow}>
         <CarouselSlider />
-      </div>
+      </div> */}
       <div className={styles.containerForm}>
         <Text fontSize="5xl" as={"b"}>
           Sign in with password
@@ -96,7 +97,7 @@ const Login: FC<LoginProps> = () => {
           </FormControl>
           <div className={styles.checkRow}>
             <Checkbox
-              fontSize={"md"}
+              fontSize="md"
               isChecked={remember}
               onChange={(e) => {
                 setRemember(!remember);
@@ -114,9 +115,9 @@ const Login: FC<LoginProps> = () => {
             Sign in
           </Button>
           <div className={styles.divider}>
-            <Divider width={"120px"} />
+            <Divider width={"100px"} />
             <Text fontSize="sm">or continue with</Text>
-            <Divider width={"120px"} />
+            <Divider width={"100px"} />
           </div>
           <div className={styles.continueButtons}>
             <Button variant="outline" size="lg">
