@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  background-color: #F3F9FF;
+  background-color: #f3f9ff;
 }
 
 .contentWrapper {
@@ -8,4 +8,69 @@
   flex-grow: 3;
   flex-direction: column;
   gap: 30px;
+}
+
+.content {
+  height: 85%;
+  margin-left: 40px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.contentHead {
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.assets {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-basis: 600px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.coinsContainer {
+  display: flex;
+  flex-basis: 1000px;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.coins {
+  display: flex;
+  background-color: white;
+  flex-basis: 300px;
+  max-height: 150px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+.contentFooter {
+  height: 55%;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.statistic {
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-grow: 2;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.markets {
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-basis: 300px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
