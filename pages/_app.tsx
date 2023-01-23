@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

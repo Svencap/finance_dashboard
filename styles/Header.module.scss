@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 40px 40px 0px 40px;
   height: 100px;
+  align-items: center;
 }
 
 .pageName {
@@ -12,13 +13,13 @@
 
 .navigation {
   display: flex;
-  gap: 70px;
+  gap: 30px;
   align-items: center;
 }
 
 .info {
   display: flex;
-  gap: 50px;
+  gap: 25px;
 }
 
 .contentWrapper {
@@ -26,4 +27,12 @@
   flex-grow: 3;
   gap: 30px;
   flex-direction: column;
+}
+
+
+@media screen and (max-width : 540px) {
+  .wrapper {
+    flex-wrap: wrap;
+    padding: 20px 20px 0px 20px;
+  }
 }
