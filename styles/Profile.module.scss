@@ -16,10 +16,6 @@
   padding: 20px;
   gap: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-  &:last-child {
-    margin-bottom: 80px;
-  }
 }
 
 .itemWrapper {
@@ -35,7 +31,7 @@
 }
 
 .container {
-  width: 90vw;
+  width: 70vw;
   max-width: 600px;
   margin: 0 auto;
   display: flex;
@@ -46,10 +42,21 @@
 .orherInfo {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
   font-size: 15px;
   padding-bottom: 20px;
 }
 
 .city {
   font-size: 30px;
+}
+
+@media screen and (max-width: 540px) {
+  .container {
+    width: 90vw;
+  }
+  .userEditInfo:last-child {
+    margin-bottom: 80px;
+  }
 }
