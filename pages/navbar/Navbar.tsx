@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { FiHelpCircle } from "react-icons/fi";
 import { Avatar, Divider } from "@chakra-ui/react";
 import styles from "../../styles/Navbar.module.scss";
@@ -19,25 +19,23 @@ const Navbar: FC<NavbarProps> = () => {
     router.push("/login");
   };
 
-
-
   const [positionY, setPosition] = useState(0);
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   console.log(positionY);
 
-  useEffect(()=> {
-      const handleScroll = () => {
-         let moving = window.scrollY
-         
-         setVisible(positionY < moving);
-         setPosition(moving)
-      };
-      window.addEventListener("scroll", handleScroll);
-      return(() => {
-         window.removeEventListener("scroll", handleScroll);
-      })
-  })
+  useEffect(() => {
+    const handleScroll = () => {
+      let moving = window.scrollY;
+
+      setVisible(positionY < moving);
+      setPosition(moving);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   console.log(visible);
   useEffect(() => {
@@ -139,12 +137,8 @@ const Navbar: FC<NavbarProps> = () => {
           </div>
         </>
       ) : (
-        <div
-          className={styles.mobileContainer}
-        >
-          <div
-            className={styles.mobileNavigate}
-          >
+        <div className={styles.mobileContainer}>
+          <div className={styles.mobileNavigate}>
             <Link as={NextLink} href="/" _hover={{ textDecoration: "none" }}>
               <Button size="sm">
                 <RiHome6Fill size={22} />
