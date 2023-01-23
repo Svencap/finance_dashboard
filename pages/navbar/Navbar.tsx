@@ -22,14 +22,14 @@ const Navbar: FC<NavbarProps> = () => {
   const [positionY, setPosition] = useState(0);
   const [visible, setVisible] = useState(false);
 
-  console.log(positionY);
-
   useEffect(() => {
     const handleScroll = () => {
       let moving = window.scrollY;
 
-      setVisible(positionY < moving);
-      setPosition(moving);
+      if (window.innerWidth <= 540) {
+        setVisible(positionY > moving);
+        setPosition(moving);
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -37,13 +37,15 @@ const Navbar: FC<NavbarProps> = () => {
     };
   });
 
-  console.log(visible);
   useEffect(() => {
     if (window.innerWidth < 1060) {
       setTablet(true);
     } else setTablet(false);
 
     const handleResize = () => {
+      if (!visible && window.innerWidth > 540) {
+        setVisible(false);
+      }
       if (window.innerWidth < 1060) {
         setTablet(true);
       } else setTablet(false);
@@ -57,8 +59,7 @@ const Navbar: FC<NavbarProps> = () => {
   }, []);
 
   return (
-    // Фикс скрола
-    <div className={!visible && positionY ? styles.show : styles.container}>
+    <div className={visible && tablet ? styles.show : styles.container }>
       {!tablet ? (
         <>
           <div className={styles.headNav}>
