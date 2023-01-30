@@ -1,0 +1,19 @@
+.markets {
+  grid-column: 3 / 4;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .markets {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .markets {
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+  }
+}

@@ -1,0 +1,10 @@
+.coins {
+  background-color: goldenrod;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .coins {
+    // max-width: 150px;
+  }
+}
