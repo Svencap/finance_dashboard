@@ -6,7 +6,11 @@ import styles from "../styles/Home.module.scss";
 import axios from "axios";
 import routes from "../routes.js";
 import { useAppDispatch } from "../redux/hooks/redux-hooks";
-import { actions as usersSlice} from "../redux/slices/usersSlice";
+import { actions as usersSlice } from "../redux/slices/usersSlice";
+import CoinsList from "./Coins/CoinsList";
+import Assets from "./Assets";
+import Statistic from "./Statistic";
+import Markets from "./Markets";
 
 interface User {
   _id: number;
@@ -20,7 +24,7 @@ function HomePage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
-  const getNormalalized = (data:any) => {
+  const getNormalalized = (data: any) => {
     const entities = data.reduce((acc: any, item: User) => {
       const { _id, username, email, password, __v } = item;
       acc[item._id] = { id: _id, username, email, password, __v };
@@ -32,12 +36,12 @@ function HomePage() {
   };
 
   useEffect(() => {
-    const { username } = JSON.parse(localStorage.getItem("user") || '{}');
+    const { username } = JSON.parse(localStorage.getItem("user") || "{}");
     const fetchData = async () => {
       const { data } = await axios.post(routes.dataPath(), { username });
       const { ids, entities } = getNormalalized([data]);
       dispatch(usersSlice.addUser({ ids, entities }));
-    }
+    };
     fetchData();
   }, []);
 
@@ -46,7 +50,12 @@ function HomePage() {
       <Navbar />
       <div className={styles.contentWrapper}>
         <Header title="Home" />
-        <div>awdawdawddwadawdawadw</div>
+        <div className={styles.homeContent}>
+          <Assets />
+          <CoinsList />
+          <Statistic />
+          <Markets />
+        </div>
       </div>
     </div>
   );

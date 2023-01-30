@@ -1,0 +1,10 @@
+.homeAssets {
+  border-radius: 10px;
+  background-color: blueviolet;
+}
+
+@media screen and (max-width: 600px) {
+  .homeAssets {
+    grid-column: 1 / -1;
+  }
+}

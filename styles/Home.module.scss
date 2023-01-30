@@ -7,10 +7,96 @@
   display: flex;
   flex-grow: 3;
   flex-direction: column;
-  gap: 30px;
 }
 
 
+.homeContent {
+  display: grid;
+  // grid-template-columns: 411px 305px 305px;
+  // grid-template-columns: 545px 432px 432px;
+  grid-template-columns: minmax(250px, 545px) minmax(150px, 432px) minmax(150px, 432px);
+  grid-template-rows: 387px 400px;
+  padding-left: 40px;
+  padding-right: 40px;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+
+
+// .homeContent {
+//   display: grid;
+  // grid-template-columns: 545px 432px 432px;
+  // grid-template-columns: minmax(300px, 545px) minmax(250px, 400px) minmax(250px, 400px);
+//   grid-template-rows: 190px 190px 385px;
+//   gap: 30px;
+//   padding-left: 40px;
+//   padding-right: 40px;
+//   margin: 0 auto;
+// }
+
+// .homeAssets {
+//   grid-row: 1 / 3;
+//   background-color: aquamarine;
+//   border-radius: 10px;
+// }
+
+// .statistic {
+//   grid-column: 1 / -2;
+//   background-color: purple;
+//   border-radius: 10px;
+// }
+
+// .coins {
+//   background-color: goldenrod;
+//   border-radius: 10px;
+// }
+
+// .markets {
+//   grid-column: 3 / 4;
+//   background-color: cornflowerblue;
+//   border-radius: 10px;
+// }
+
+@media screen and (max-width: 1000px) {
+  
+}
+
+@media screen and (max-width: 940px) {
+  .homeContent {
+    grid-template-columns: minmax(150px, 500px) minmax(150px, 500px);
+    grid-template-rows: 300px 150px 300px;
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .homeContent {
+    grid-template-columns: minmax(50px, 500px) minmax(50px, 500px);
+    grid-template-rows: 300px 150px 300px 300px;
+    padding: 0 10px 10px 10px;
+    margin-top: 30px;
+  }
+}
+
+// @media screen and (max-width: 826px) {
+//   .homeContent {
+    // grid-template-columns: minmax(50px, 200px) minmax(50px, 400px) minmax(50px, 400px) minmax(50px, 100px);
+//     grid-template-rows: 190px 100px 150px 190px 190px;
+//     gap: 15px;
+//   }
+//   .homeAssets {
+//     grid-column: 1 / 3;
+//   }
+//   .markets {
+//     grid-column: 3 / 5;
+//   }
+//   .statistic {
+//     grid-row: 4 / 6;
+//     grid-column: 1 / -1;
+//   }
+// }
 
 @media screen and (max-width : 540px) {
   .wrapper {
